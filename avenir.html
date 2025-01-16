@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Avenir - Mon Portfolio</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: rgb(0, 0, 0);
+            background-color: #f8f9fa;
+        }
+
+        .content {
+            padding: 100px 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .future {
+            padding: 50px 0;
+        }
+
+        .future img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .future img:hover {
+            transform: scale(1.1);
+        }
+
+        .card {
+            background-color: #34495e;
+            border: none;
+            color: white;
+            padding: 20px;
+            min-height: 350px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+     <!-- Barre de navigation -->
+     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Portfolio Ismael Nebbache</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="qui_suis_je.html">Qui suis-je</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="parcours.html">Mon Parcours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projets.html">Mes Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille_technologique.html">Veille Technologique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certifications.html">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avenir.html">Mon Avenir</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Contenu principal -->
+    <div class="content">
+        <h1>Mon Avenir</h1>
+        <p>Je me projette dans un avenir où je continuerai à développer mes compétences en développement web et en gestion de projets, avec pour objectif de devenir un expert en solutions logicielles. Voici quelques domaines dans lesquels je souhaite évoluer.</p>
+    </div>
+
+    <!-- Futur -->
+    <div class="future container">
+        <h2 class="text-center mb-4">Mes Objectifs Futurs</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="licencemiage.jpg" alt="Futur Projet 1">
+                <img src="devweb.png" alt="Futur Projet 2">
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Développement d'Applications Mobiles</h5>
+                        <p class="card-text">Je souhaite acquérir des compétences avancées dans le développement d'applications mobiles, en utilisant des frameworks modernes comme Flutter ou React Native.</p>
+                        <h5 class="card-title">Intelligence Artificielle et Machine Learning</h5>
+                        <p class="card-text">Mon objectif est de m'initier à l'intelligence artificielle et au machine learning pour développer des applications capables d'apprendre et de s'adapter aux utilisateurs.</p>
+                        <h5 class="card-title">Poursuite d'Études en MIAGE ou École Informatique</h5>
+                        <p class="card-text">
+                            Afin de développer davantage mes connaissances en informatique et dans le domaine digital, je prévois de poursuivre mes études dans un cursus MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises) ou dans une école spécialisée en informatique ou en digital. Ces études me permettront de renforcer mes compétences techniques et de gestion de projets.
+                        </p>
+                        <h5 class="card-title">Devenir Développeur Web Indépendant</h5>
+                        <p class="card-text">
+                            À terme, mon ambition est de devenir développeur web à mon compte. Je souhaite offrir mes services en tant que freelance, en développant des solutions sur mesure pour mes clients, tout en continuant à me former sur les dernières technologies et tendances du web.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion du script Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
