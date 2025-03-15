@@ -1,0 +1,46 @@
+
+body {
+    background: rgb(181, 223, 237); 
+    margin: 0; 
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    color: #0b0505;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 20px; 
+}
+
+.titre {
+
+    background-color: #336699;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border: 5px solid black;
+}
+
+.liste li {
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    margin: 20px;
+    font-weight: bold; 
+}
+
+.texte1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 19px;
+        font-weight: normal;
+}
+
+.image-casquette{
+    width: 30%; 
+    display: block;
+    margin: auto;
+    padding-top: 20px;
+}
