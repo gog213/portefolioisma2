@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique - Mon Portfolio</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.4s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 8px 0;
+            background: rgba(58, 28, 113, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+        
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            margin: 0 8px;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            background: url('https://api.placeholder.com/400/320') no-repeat center center;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                rgba(58, 28, 113, 0.7),
+                rgba(215, 109, 119, 0.7)
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-out;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #ffffff, #d7d7d7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleSlideIn 1s ease-out;
+        }
+
+        @keyframes titleSlideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: textFadeIn 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes textFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Veille section */
+        .veille {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #3a1c71;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #3a1c71, #d76d77);
+            border-radius: 2px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            border: none;
+            height: 100%;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(58, 28, 113, 0.1);
+        }
+
+        .tech-card .card-header {
+            background: linear-gradient(to right, #3a1c71, #d76d77);
+            color: white;
+            font-weight: 600;
+            padding: 20px;
+            border: none;
+        }
+
+        .tech-card .card-body {
+            padding: 25px;
+        }
+
+        .tech-card .card-title {
+            color: #3a1c71;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .tech-card .card-text {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .tech-meta {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tech-meta span {
+            display: block;
+            margin-bottom: 5px;
+            color: #777;
+        }
+
+        .tech-meta strong {
+            color: #333;
+        }
+
+        .article-link {
+            color: #d76d77;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .article-link:hover {
+            color: #3a1c71;
+            text-decoration: underline;
+        }
+
+        .btn-custom {
+            background: linear-gradient(to right, #3a1c71, #d76d77);
+            color: #fff;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(215, 109, 119, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .btn-custom::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(to right, #d76d77, #3a1c71);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(215, 109, 119, 0.6);
+            color: #fff;
+        }
+        
+        .btn-custom:hover::before {
+            width: 100%;
+        }
+
+        .btn-custom i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+
+        .btn-custom:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #3a1c71;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOutLoader 0.8s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        @keyframes fadeOutLoader {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Résumé final */
+        .summary-section {
+            background: linear-gradient(to right, rgba(58, 28, 113, 0.05), rgba(215, 109, 119, 0.05));
+            padding: 50px 0;
+            margin-top: 30px;
+            border-radius: 15px;
+        }
+
+        .summary-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .summary-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3a1c71;
+            margin-bottom: 20px;
+        }
+
+        .summary-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="page-loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-code"></i> Ismael Nebbache
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="qui_suis_je.html">
+                            <i class="fas fa-user"></i> Qui suis-je
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="parcours.html">
+                            <i class="fas fa-road"></i> Mon Parcours
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projets.html">
+                            <i class="fas fa-project-diagram"></i> Mes Projets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille_technologique.html">
+                            <i class="fas fa-rss"></i> Veille
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certifications.html">
+                            <i class="fas fa-certificate"></i> Certifications
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avenir.html">
+                            <i class="fas fa-rocket"></i> Mon Avenir
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Veille Technologique</h1>
+            <p>Explorez ma veille technologique et découvrez les dernières innovations dans le domaine des corps connectés.</p>
+        </div>
+    </div>
+
+    <!-- Section Veille Technologique -->
+    <div class="veille container">
+        <h2 class="section-title">Corps Connectés : Innovations Technologiques</h2>
+        
+        <div class="row">
+            <!-- Card: Casquettes Anti-Calvitie -->
+            <div class="col-md-4">
+                <div class="card tech-card">
+                    <div class="card-header">
+                        <i class="fas fa-hat-cowboy me-2"></i> Casquettes Anti-Calvitie
+                    </div>
+                    <div class="card-body">
+                        <div class="tech-meta">
+                            <span><strong>Auteur:</strong> Sapiens Blog</span>
+                            <!-- Date précise -->
+                            <span><strong>Date:</strong> <time datetime="2023-03-15">15 mars 2023</time></span>
+                            <span><strong>Source:</strong> Sapiens Magazine</span>
+                        </div>
+                        <h5 class="card-title">Technologie LED contre la Calvitie</h5>
+                        <p class="card-text">Une technologie innovante qui aide à retrouver des cheveux grâce à des lumières LED stimulantes. Ce dispositif propose une expérience numérique via une application mobile interactive pour suivre les progrès et personnaliser le traitement.</p>
+                        <a href="https://sapiens.co/blogs/magazine/casquette-calvitie-lien?srsltid=AfmBOooxrKweIdcgUzMD0I4uCPTZmqnSkBZ0qtPBf0ZpZ2fdYtQjHPbf" target="_blank" class="article-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card: Dents Connectées -->
+            <div class="col-md-4">
+                <div class="card tech-card">
+                    <div class="card-header">
+                        <i class="fas fa-tooth me-2"></i> Dents Connectées
+                    </div>
+                    <div class="card-body">
+                        <div class="tech-meta">
+                            <span><strong>Auteur:</strong> INSERM</span>
+                            <!-- Date précise -->
+                            <span><strong>Date:</strong> <time datetime="2024-05-10">10 mai 2024</time></span>
+                            <span><strong>Source:</strong> INSERM</span>
+                        </div>
+                        <h5 class="card-title">Surveillance Bucco-dentaire en Temps Réel</h5>
+                        <p class="card-text">Les dents connectées surveillent la santé bucco-dentaire en temps réel, avertissant des problèmes avant même leur apparition. Cette technologie novatrice aide à améliorer l'hygiène de vie et permet de détecter précocement les risques liés au diabète.</p>
+                        <a href="https://www.inserm.fr/actualite/diabete-un-bilan-de-sante-via-une-dent-connectee/" target="_blank" class="article-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card: Interfaces Cerveau-Ordinateur -->
+            <div class="col-md-4">
+                <div class="card tech-card">
+                    <div class="card-header">
+                        <i class="fas fa-brain me-2"></i> Interfaces Cerveau-Ordinateur
+                    </div>
+                    <div class="card-body">
+                        <div class="tech-meta">
+                            <span><strong>Auteur:</strong> Neuralink Team</span>
+                            <!-- Date précise -->
+                            <span><strong>Date:</strong> <time datetime="2024-04-20">20 avril 2024</time></span>
+                            <span><strong>Source:</strong> Neuralink</span>
+                        </div>
+                        <h5 class="card-title">L'Avenir de l'Interface Humain-Machine</h5>
+                        <p class="card-text">Les interfaces cerveau-ordinateur ouvrent la voie à de nouvelles interactions entre l'humain et la machine. Cette révolution technologique pourrait redéfinir l'autonomie des personnes handicapées et transformer notre façon d'interagir avec les technologies.</p>
+                        <a href="https://neuralink.com" target="_blank" class="article-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nouvelle rangée avec deux cartes -->
+        <div class="row mt-4">
+            <!-- Card: Montres Connectées -->
+            <div class="col-md-6">
+                <div class="card tech-card">
+                    <div class="card-header">
+                        <i class="fas fa-watch me-2"></i> Montres Connectées
+                    </div>
+                    <div class="card-body">
+                        <div class="tech-meta">
+                            <span><strong>Auteur:</strong> TechHealth Magazine</span>
+                            <!-- Date précise -->
+                            <span><strong>Date:</strong> <time datetime="2024-07-05">5 juillet 2024</time></span>
+                            <span><strong>Source:</strong> TechHealth</span>
+                        </div>
+                        <h5 class="card-title">Suivi de la Santé en Temps Réel</h5>
+                        <p class="card-text">Les montres connectées offrent un suivi continu de la santé grâce à des capteurs intégrés. Elles permettent de surveiller le rythme cardiaque, la qualité du sommeil et l'activité physique, aidant ainsi à prévenir les risques de maladies chroniques.</p>
+                        <a href="https://www.nationalgeographic.fr/sciences/sante-psychologie-les-moniteurs-activite-physique-nous-rendraient-anxieux-montre-bague-connectee" target="_blank" class="article-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card: Lentilles de contact intelligentes -->
+            <div class="col-md-6">
+                <div class="card tech-card">
+                    <div class="card-header">
+                        <i class="fas fa-eye me-2"></i> Lentilles de contact intelligentes
+                    </div>
+                    <div class="card-body">
+                        <div class="tech-meta">
+                            <span><strong>Auteur:</strong> Future Vision Lab</span>
+                            <!-- Date précise -->
+                            <span><strong>Date:</strong> <time datetime="2025-01-22">22 Février 2025</time></span>
+                            <span><strong>Source:</strong> FutureTech</span>
+                        </div>
+                        <h5 class="card-title">Réalité Augmentée Directe et Suivi de la Santé Oculaire</h5>
+                        <p class="card-text">Ces lentilles de contact intègrent des nano-capteurs et des technologies d'affichage en réalité augmentée pour fournir des informations contextuelles directement dans l'œil, tout en surveillant la santé oculaire en temps réel. Une innovation qui pourrait révolutionner notre interaction avec le monde numérique.</p>
+                        <a href="https://medclinics.com/fr/lentille-intelligente/" target="_blank" class="article-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Résumé Final -->
+        <div class="summary-section mt-5">
+            <div class="summary-content">
+                <h3 class="summary-title">Synthèse de la Veille Technologique</h3>
+                <p class="summary-text">
+                    Ces technologies – des casquettes anti-calvitie aux dents connectées, en passant par les interfaces cerveau-ordinateur, les montres connectées et les lentilles de contact intelligentes – illustrent un futur où la technologie s'intègre de manière intime à notre corps. Elles ouvrent des perspectives inédites en matière de santé et de bien-être, transformant notre quotidien et repensant l'interaction entre l'humain et la machine.
+                </p>
+                <a href="SITEVT/index.html" class="btn-custom" target="_blank">
+                    Explorer ma veille complète <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion du script Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts personnalisés -->
+    <script>
+        // Navbar effect on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Hide loader when page is loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.page-loader').style.display = 'none';
+            }, 2500);
+        });
+    </script>
+</body>
+</html>

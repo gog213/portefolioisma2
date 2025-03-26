@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mes Projets - Portfolio Ismael Nebbache</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --light-color: #f8f9fa;
+      --dark-color: #343a40;
+      --gradient-start: #3a7bd5;
+      --gradient-end: #00d2ff;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+    }
+
+    /* Navbar */
+    .navbar {
+  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1.4rem;
+    }
+    
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #fff;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Section Hero */
+    .hero {
+      background: var(--secondary-color) url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80') no-repeat center center;
+      background-size: cover;
+      background-blend-mode: overlay;
+      color: #fff;
+      padding: 120px 30px;
+      text-align: center;
+      margin-top: 70px;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(44, 62, 80, 0.85);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* Conteneur de projets */
+    .projects-container {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+
+    /* Cartes de projets */
+    .project-card {
+  background: linear-gradient(145deg, #34495e, #2c3e50);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    .project-card img {
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      transition: transform 0.6s ease;
+    }
+    
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .project-card .card-body {
+      padding: 25px;
+      position: relative;
+    }
+    
+    .project-card .card-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+      font-size: 1.3rem;
+    }
+    
+    .project-card .card-text {
+      color: #6c757d;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    
+    .badge-year {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background: var(--gradient-start);
+      color: white;
+      font-weight: 500;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    
+    .project-tag {
+      background-color: #e9f4fe;
+      color: var(--primary-color);
+      font-size: 0.8rem;
+      border-radius: 20px;
+      padding: 3px 12px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .btn-project {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+      color: white;
+      border-radius: 25px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(86, 21, 78, 0.15);
+    }
+    
+    .btn-project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--secondary-color);
+      color: white;
+      padding: 40px 0 20px;
+      margin-top: 50px;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    .footer-section {
+      margin-bottom: 30px;
+    }
+    
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--primary-color);
+    }
+    
+    .social-links a {
+      display: inline-block;
+      margin-right: 15px;
+      color: #fff;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-code me-2"></i>Ismael Nebbache
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="qui_suis_je.html"><i class="fas fa-user me-1"></i> Qui suis-je</a></li>
+          <li class="nav-item"><a class="nav-link" href="parcours.html"><i class="fas fa-graduation-cap me-1"></i> Mon Parcours</a></li>
+          <li class="nav-item"><a class="nav-link active" href="projets.html"><i class="fas fa-project-diagram me-1"></i> Mes Projets</a></li>
+          <li class="nav-item"><a class="nav-link" href="veille_technologique.html"><i class="fas fa-rss me-1"></i> Veille Technologique</a></li>
+          <li class="nav-item"><a class="nav-link" href="certifications.html"><i class="fas fa-certificate me-1"></i> Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="avenir.html"><i class="fas fa-rocket me-1"></i> Mon Avenir</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Mes Projets</h1>
+      <p>Découvrez mon portfolio de projets développés pendant mon parcours professionnel et académique.</p>
+    </div>
+  </div>
+
+  <!-- Conteneur des projets -->
+  <div class="container projects-container">
+    <h2 class="section-title">Réalisations Récentes</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+      <!-- NouvelleVague (1er projet) -->
+      <div class="col">
+        <div class="card project-card">
+          <img src="img.jpg" class="card-img-top" alt="NouvelleVague"/>
+          <div class="card-body">
+            <span class="badge-year">2024/2025</span>
+            <h5 class="card-title">NouvelleVague</h5>
+            <p class="card-text">
+              La Nouvelle Vague est une application web développée avec CodeIgniter 4 qui facilite l’intégration des nouveaux Getcetois en leur proposant de s’inscrire aux événements phares de la ville.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">CodeIgniter 4</span>
+              <span class="project-tag">PHP</span>
+            </div>
+            <a href="NouvelleVague.html" class="btn-project mt-3">
+              En savoir plus <i class="fas fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fripouilles (2ème projet) -->
+      <div class="col">
+        <div class="card project-card">
+          <img src="img.jpg" class="card-img-top" alt="Fripouilles"/>
+          <div class="card-body">
+            <span class="badge-year">2024/2025</span>
+            <h5 class="card-title">Fripouilles</h5>
+            <p class="card-text">Application Java pour gérer les ventes éphémères de vêtements de seconde main avec gestion des stocks et des clients.</p>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">JEE</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+            <a href="fripouilles.html" class="btn-project mt-3">Voir le projet <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Api-EpiSolidaire (3ème projet) -->
+      <div class="col">
+        <div class="card project-card">
+          <img src="img.jpg" class="card-img-top" alt="Api-EpiSolidaire"/>
+          <div class="card-body">
+            <span class="badge-year">2024/2025</span>
+            <h5 class="card-title">Api-EpiSolidaire</h5>
+            <p class="card-text">Intranet pour une mairie avec plusieurs rôles (Maire, secrétaire, épicier, commerçant). Réalisé en MVC.</p>
+            <div class="project-tags">
+              <span class="project-tag">PHP</span>
+              <span class="project-tag">MVC</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+            <a href="Api-EpiSolidaire.html" class="btn-project mt-3">Voir le projet <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet Sio2Jeux -->
+      <div class="col">
+        <div class="card project-card">
+          <img src="img.jpg" class="card-img-top" alt="Sio2Jeux"/>
+          <div class="card-body">
+            <span class="badge-year">2024/2025</span>
+            <h5 class="card-title">Sio2Jeux</h5>
+            <p class="card-text">Application Java pour gérer une bibliothèque de jeux vidéo, classés par catégorie, éditeur et plateforme.</p>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">JDBC</span>
+              <span class="project-tag">Swing</span>
+            </div>
+            <a href="Sio2Jeux.html" class="btn-project mt-3">Voir le projet <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet Site Marchand Dynamique -->
+      <div class="col">
+        <div class="card project-card">
+          <img src="img.jpg" class="card-img-top" alt="Site Marchand Dynamique"/>
+          <div class="card-body">
+            <span class="badge-year">2023/2024</span>
+            <h5 class="card-title">Site Marchand Dynamique</h5>
+            <p class="card-text">Projet de 1ère année BTS, site web dynamique avec gestion des articles et base de données.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML/CSS</span>
+              <span class="project-tag">PHP</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+            <a href="projet_site_marchand.html" class="btn-project mt-3">Voir le projet <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet Réseaux -->
+      <div class="col">
+        <div class="card project-card">
+          <img src="img.jpg" class="card-img-top" alt="Projet Réseaux"/>
+          <div class="card-body">
+            <span class="badge-year">2023/2024</span>
+            <h5 class="card-title">Projet Réseaux</h5>
+            <p class="card-text">Le projet de réseaux consiste à interconnecter plusieurs LAN via un routeur, en configurant les adresses IP et les passerelles par défaut.</p>
+            <div class="project-tags">
+              <span class="project-tag">Réseaux</span>
+              <span class="project-tag">Cisco</span>
+              <span class="project-tag">Configuration IP</span>
+            </div>
+            <a href="TPreseaux.html" class="btn-project mt-3">Voir le projet <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet Snake en Python -->
+      <div class="col">
+        <div class="card project-card">
+          <img src="Snake_OG-logo.jpg" class="card-img-top" alt="Jeu Snake"/>
+          <div class="card-body">
+            <span class="badge-year">2022/2023</span>
+            <h5 class="card-title">Jeu Snake en Python</h5>
+            <p class="card-text">Projet de Terminale développé avec Python et Pygame, recréant le classique jeu Snake avec des fonctionnalités modernes.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Pygame</span>
+              <span class="project-tag">Game Dev</span>
+            </div>
+            <a href="projet_snake.html" class="btn-project mt-3">Voir le projet <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row footer-content">
+        <div class="col-md-4 footer-section">
+          <h3>À propos</h3>
+          <p>Portfolio d'Ismael Nebbache, étudiant en BTS SIO spécialité SLAM, passionné par le développement informatique et les nouvelles technologies.</p>
+        </div>
+        <div class="col-md-4 footer-section">
+          <h3>Liens rapides</h3>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Accueil</a></li>
+            <li><a href="qui_suis_je.html" class="text-white">Qui suis-je</a></li>
+            <li><a href="projets.html" class="text-white">Mes Projets</a></li>
+            <li><a href="contact.html" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 footer-section">
+          <h3>Me suivre</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ismael Nebbache. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

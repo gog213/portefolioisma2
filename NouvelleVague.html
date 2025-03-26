@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nouvelle Vague - Getcet sur Mer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: var(--light-color);
+        }
+        
+        .header-img {
+            height: 300px;
+            background-image: url('/api/placeholder/1200/300');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        
+        .section-title {
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        /* Galerie */
+        .galerie-img {
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-water me-2"></i>
+                La Nouvelle Vague
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projet">Le Projet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fonctionnalites">Fonctionnalités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technologies">Technologies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galerie">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipe">Équipe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="accueil" class="header-img">
+        <div class="header-overlay">
+            <h1 class="display-4 fw-bold">La Nouvelle Vague</h1>
+            <p class="lead">À l'abordage des nouveaux arrivants !</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Présentation du Projet -->
+        <section id="projet">
+            <h2 class="section-title">Présentation du Projet</h2>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <blockquote class="blockquote p-4 bg-light border-start border-4 border-primary">
+                        <p class="mb-0">"Vous venez de poser vos valises à Getcet sur Mer et nous sommes fiers de vous accueillir dans notre belle ville. Notre ville, riche de son histoire, vous offre un accueil chaleureux pour faciliter votre intégration."</p>
+                        <footer class="blockquote-footer mt-2">Mme GerCel, <cite title="Source Title">Maire de Getcet sur Mer</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">À propos du projet</h5>
+                            <p class="card-text">Le projet "La Nouvelle Vague" consiste en la création d'une application web basée sur CodeIgniter 4, destinée à faciliter l'accueil et l'intégration des nouveaux arrivants dans la ville de Getcet-sur-Mer.</p>
+                            <p class="card-text"><small class="text-muted">Projet réalisé du 13/01/25 au 10/03/25</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctionnalités -->
+        <section id="fonctionnalites">
+            <h2 class="section-title">Fonctionnalités</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Pour les Nouveaux Arrivants</div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <i class="fas fa-user-plus feature-icon"></i>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Création de compte</li>
+                                <li class="list-group-item">Mise à jour du profil</li>
+                                <li class="list-group-item">Inscription aux événements</li>
+                                <li class="list-group-item">Consultation des inscriptions</li>
+                                <li class="list-group-item">Annulation d'inscription</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Pour la Mairie (Maire)</div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <i class="fas fa-chart-bar feature-icon"></i>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Consultation des inscriptions par événement</li>
+                                <li class="list-group-item">Liste des participants</li>
+                                <li class="list-group-item">Analyse des événements</li>
+                                <li class="list-group-item">Génération de rapports PDF</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Pour la Mairie (Secrétaire)</div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <i class="fas fa-calendar-alt feature-icon"></i>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Création de temps forts</li>
+                                <li class="list-group-item">Gestion du planning</li>
+                                <li class="list-group-item">Configuration des places disponibles</li>
+                                <li class="list-group-item">Modification d'événements</li>
+                                <li class="list-group-item">Suppression d'événements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technologies Utilisées -->
+        <section id="technologies" class="mt-5">
+            <h2 class="section-title">Technologies Utilisées</h2>
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <i class="fab fa-php fa-3x mb-3 text-primary"></i>
+                            <h5>PHP</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <i class="fab fa-html5 fa-3x mb-3 text-primary"></i>
+                            <h5>HTML 5</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <i class="fab fa-css3-alt fa-3x mb-3 text-primary"></i>
+                            <h5>CSS 3</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <i class="fab fa-js fa-3x mb-3 text-primary"></i>
+                            <h5>JavaScript</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <i class="fas fa-database fa-3x mb-3 text-primary"></i>
+                            <h5>SQL</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                            <h5>CodeIgniter 4</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <i class="fab fa-bootstrap fa-3x mb-3 text-primary"></i>
+                            <h5>Bootstrap</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Galerie de l'Application -->
+        <section id="galerie" class="mt-5">
+            <h2 class="section-title">Galerie de l'Application</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv.png" alt="Screenshot 1" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv1.png" alt="Screenshot 2" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv2.png" alt="Screenshot 3" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv3.png" alt="Screenshot 4" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv4.png" alt="Screenshot 5" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv5.png" alt="Screenshot 6" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv6.png" alt="Screenshot 7" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv7.png" alt="Screenshot 8" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv8.png" alt="Screenshot 9" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv9.png" alt="Screenshot 10" class="img-fluid rounded shadow galerie-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="AppliNv10.png" alt="Screenshot 11" class="img-fluid rounded shadow galerie-img">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Timeline -->
+        <section id="deroulement" class="mt-5">
+            <h2 class="section-title">Déroulement du Projet</h2>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>13/01/2025</h3>
+                        <p>Début du projet et analyse du cahier des charges</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>20/01/2025</h3>
+                        <p>Création des diagrammes (cas d'utilisation, classe, MCD)</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>01/02/2025</h3>
+                        <p>Développement des fonctionnalités pour les arrivants</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>15/02/2025</h3>
+                        <p>Développement des fonctionnalités pour le secrétaire</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>25/02/2025</h3>
+                        <p>Développement des fonctionnalités pour le maire</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>01/03/2025</h3>
+                        <p>Phase de tests et corrections</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>10/03/2025</h3>
+                        <p>Livraison finale du projet</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Équipe -->
+        <section id="equipe" class="mt-5">
+            <h2 class="section-title">Notre Équipe</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                           
+                            <h4>Ismael Nebbache</h4>
+                            <p class="text-muted">Développeur Full Stack</p>
+                            <p>Responsable du développement des fonctionnalités pour le maire et la gestion des événements.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                           
+                            <h4>Ahmad Jaber</h4>
+                            <p class="text-muted">Développeur Full Stack</p>
+                            <p>Responsable du développement des fonctionnalités pour les arrivants et l'interface utilisateur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>La Nouvelle Vague</h5>
+                    <p>Une initiative de la ville de Getcet sur Mer pour accueillir les nouveaux arrivants et faciliter leur intégration.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>Liens utiles</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Site officiel de la ville</a></li>
+                        <li><a href="#" class="text-white">Guide du nouvel arrivant</a></li>
+                        <li><a href="#" class="text-white">Services municipaux</a></li>
+                        <li><a href="#" class="text-white">Associations locales</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact</h5>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Hôtel de Ville, Place de la Mairie<br>Getcet sur Mer, France</p>
+                        <p><i class="fas fa-phone me-2"></i> +33 (0)4 XX XX XX XX</p>
+                        <p><i class="fas fa-envelope me-2"></i> accueil@getcetsurmer.fr</p>
+                    </address>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Ville de Getcet sur Mer. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Développé par Ismael Nebbache et Ahmad Jaber</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        // Le défilement fluide est géré via le CSS (scroll-behavior: smooth)
+    </script>
+</body>
+</html>

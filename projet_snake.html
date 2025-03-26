@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Snake en Python - Mon Portfolio</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .content {
+            padding: 100px 20px;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .card {
+            background-color: #34495e;
+            color: white;
+            border: none;
+        }
+
+        .card-body h5 {
+            font-weight: bold;
+        }
+
+        pre {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Portfolio Ismael Nebbache</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="qui_suis_je.html">Qui suis-je</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="parcours.html">Mon Parcours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projets.html">Mes Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille_technologique.html">Veille Technologique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certifications.html">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avenir.html">Mon Avenir</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container content">
+        <h1 class="text-center mb-4">Projet de Terminale - Jeu Snake en Python</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5>Contexte</h5>
+                <p>Ce projet a été réalisé en Terminale dans le cadre de la spécialité NSI. Il consistait à développer une version du célèbre jeu "Snake" en utilisant Python et la bibliothèque Pygame.</p>
+                
+                <h5>Besoins et Missions</h5>
+                <p>Le but principal était de créer un jeu fonctionnel en Python, tout en intégrant des concepts de programmation orientée objet. Il était nécessaire de mettre en œuvre des algorithmes pour la gestion du serpent et des éléments du jeu, notamment la croissance du serpent, la gestion des collisions et la génération aléatoire des pommes.</p>
+                
+                <h5>Langages et Outils</h5>
+                <ul>
+                    <li>Python</li>
+                    <li>Pygame</li>
+                </ul>
+                
+                <h5>Dates</h5>
+                <p>Année scolaire 2022/2023</p>
+                
+                <h5>Illustrations</h5>
+                <pre><code class="python">
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"({self.x},{self.y})"
+
+class Snake:
+    def __init__(self):
+        self.corps = [Point(10, 10)]  # La tête du serpent commence au point (10, 10)
+        self.vX = 1  # Déplacement initial vers la droite
+        self.vY = 0
+        self.score = 0
+
+    def avance(self):
+        # Mise à jour de la position de la tête
+        nouvelle_tete = Point(self.corps[0].x + self.vX, self.corps[0].y + self.vY)
+        self.corps.insert(0, nouvelle_tete)  # Ajout de la nouvelle tête au début de la liste
+        self.corps.pop()  # Suppression de la queue pour simuler l'avancement
+
+    def collision(self):
+        # Collision avec les murs
+        if self.corps[0].x < 0 or self.corps[0].x >= DIMX or self.corps[0].y < 0 or self.corps[0].y >= DIMY:
+            return True
+        
+        # Collision avec le corps
+        for point in self.corps[1:]:
+            if self.corps[0].x == point.x and self.corps[0].y == point.y:
+                return True
+        return False
+                </code></pre>
+                <img src="JeuSnake.png" alt="Jeu Snake" class="img-fluid mt-3">
+
+                <h5>Résumé et Apports du Projet</h5>
+                <p>Ce projet m'a permis de renforcer mes compétences en programmation orientée objet, en gestion des structures de données comme les listes chaînées, et en manipulation de la bibliothèque Pygame. J'ai également appris à gérer des aspects complexes comme la détection de collisions et la génération d'événements aléatoires dans un contexte de jeu.</p>
+                
+                <h5>Code</h5>
+                <pre><code class="python">
+import pygame
+import random
+
+# Définition des dimensions de la fenêtre
+DIMX = 800
+DIMY = 600
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"({self.x},{self.y})"
+
+class Snake:
+    def __init__(self):
+        self.corps = [Point(10, 10)]  # La tête du serpent commence au point (10, 10)
+        self.vX = 1  # Déplacement initial vers la droite
+        self.vY = 0
+        self.score = 0
+
+    def avance(self):
+        # Mise à jour de la position de la tête
+        nouvelle_tete = Point(self.corps[0].x + self.vX, self.corps[0].y + self.vY)
+        self.corps.insert(0, nouvelle_tete)  # Ajout de la nouvelle tête au début de la liste
+        self.corps.pop()  # Suppression de la queue pour simuler l'avancement
+
+    def collision(self):
+        # Collision avec les murs
+        if self.corps[0].x < 0 or self.corps[0].x >= DIMX or self.corps[0].y < 0 or self.corps[0].y >= DIMY:
+            return True
+        
+        # Collision avec le corps
+        for point in self.corps[1:]:
+            if self.corps[0].x == point.x and self.corps[0].y == point.y:
+                return True
+        return False
+
+    def grandir(self):
+        # Ajoute une nouvelle partie à la queue du serpent
+        derniere_partie = self.corps[-1]
+        self.corps.append(Point(derniere_partie.x, derniere_partie.y))
+
+# Fonction principale
+if __name__ == "__main__":
+    pygame.init()
+    screen = pygame.display.set_mode((DIMX, DIMY))
+    clock = pygame.time.Clock()
+    snake = Snake()
+    running = True
+
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        # Contrôles du serpent
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT]:
+            snake.vX = -1
+            snake.vY = 0
+        elif keys[pygame.K_RIGHT]:
+            snake.vX = 1
+            snake.vY = 0
+        elif keys[pygame.K_UP]:
+            snake.vX = 0
+            snake.vY = -1
+        elif keys[pygame.K_DOWN]:
+            snake.vX = 0
+            snake.vY = 1
+
+        snake.avance()
+        if snake.collision():
+            running = False
+
+        # Rafraîchissement de l'affichage
+        screen.fill((0, 0, 0))
+        for part in snake.corps:
+            pygame.draw.rect(screen, (0, 255, 0), (part.x * 20, part.y * 20, 20, 20))
+        pygame.display.flip()
+        clock.tick(10)
+    
+    pygame.quit()
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion du script Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
