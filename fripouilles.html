@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet Fripouilles</title>
+  <meta name="description" content="Découvrez le projet Fripouilles, une initiative sociale pour organiser des ventes éphémères de vêtements de seconde main.">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icônes FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    /* Défilement fluide */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Navbar hover */
+    .navbar-nav .nav-link:hover {
+      color: #ffc107;
+    }
+    /* Titres de section */
+    section h2 {
+      font-weight: 700;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      width: 50px;
+      height: 3px;
+      background: #3a1c71;
+      display: block;
+      margin: 10px auto;
+    }
+    /* Espacement des sections */
+    section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Fripouilles</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#presentation">Présentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#fonctionnalites">Fonctionnalités</a></li>
+          <li class="nav-item"><a class="nav-link" href="#architecture">Architecture</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galerie">Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <main>
+    <!-- Présentation -->
+    <section id="presentation" class="container mt-5" data-aos="fade-up">
+      <div class="row align-items-center">
+        <div class="col-md-6" data-aos="fade-right">
+          <h2>Présentation</h2>
+          <p>Le projet Fripouilles est une initiative sociale qui vise à organiser des ventes éphémères de vêtements de seconde main.</p>
+          <ul>
+            <li>Création d'un catalogue de vêtements.</li>
+            <li>Enregistrement des dons et des articles.</li>
+            <li>Accès aux informations des ventes pour les habitants.</li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-center" data-aos="fade-left">
+          <img src="fripouille1.png" alt="Illustration Fripouilles" class="img-fluid rounded shadow-lg">
+        </div>
+      </div>
+    </section>
+
+    <!-- Fonctionnalités -->
+    <section id="fonctionnalites" class="container text-center" data-aos="fade-up">
+      <h2>Fonctionnalités de l'Application</h2>
+      <div class="row">
+        <div class="col-md-4" data-aos="zoom-in">
+          <i class="fas fa-user-shield fa-3x text-primary"></i>
+          <h4 class="mt-3">Authentification Sécurisée</h4>
+          <p>Accès réservé aux bénévoles, secrétaires et au maire.</p>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in">
+          <i class="fas fa-clipboard-list fa-3x text-success"></i>
+          <h4 class="mt-3">Gestion des Articles</h4>
+          <p>Enregistrement, tri et étiquetage des vêtements.</p>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in">
+          <i class="fas fa-chart-line fa-3x text-warning"></i>
+          <h4 class="mt-3">Statistiques</h4>
+          <p>Consultation des ventes et de l’historique des catalogues.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture" class="container" data-aos="fade-up">
+      <h2 class="text-center">Architecture du Projet</h2>
+      <div class="row">
+        <div class="col-md-6" data-aos="fade-right">
+          <h4>Technologies utilisées</h4>
+          <ul>
+            <li><strong>Langage :</strong> Java</li>
+            <li><strong>Architecture :</strong> MVC</li>
+            <li><strong>Base de Données :</strong> MySQL</li>
+            <li><strong>Développement :</strong> Eclipse</li>
+          </ul>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <h4>Modules de l'application</h4>
+          <ul>
+            <li>Rôle Secrétaire : Gestion des ventes et catalogues.</li>
+            <li>Rôle Maire : Consultation des catalogues et statistiques.</li>
+            <li>Rôle Bénévoles : Enregistrement et tri des articles.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie" class="container text-center" data-aos="fade-up">
+      <h2>Galerie du Projet</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <img src="appliJava.png" alt="Vue de l'application Java 1" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="AppliJava2.png" alt="Vue de l'application Java 2" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="AppliJava3.png" alt="Vue de l'application Java 3" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="AppliJava4.png" alt="Vue de l'application Java 4" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="AppliJava5.png" alt="Vue de l'application Java 5" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="AppliJava7.png" alt="Vue de l'application Java 7" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="AppliJava8.png" alt="Vue de l'application Java 8" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container text-center" data-aos="fade-up">
+      <h2>Contactez-moi</h2>
+      <p>Pour plus d’informations sur ce projet, contactez-moi :</p>
+      <a href="mailto:ismael.nebbache@example.com" class="btn btn-primary btn-lg" data-aos="zoom-in">Me contacter</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-3">
+    <div class="container">
+      <p>&copy; 2025 Ismael Nebbache | Projet Fripouilles</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS & AOS Animations -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>

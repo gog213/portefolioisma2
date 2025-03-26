@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPI'Solidaire - Application Web - Mon Portfolio</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts pour une meilleure esthétique -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+        
+        .content {
+            padding: 100px 20px;
+        }
+        
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+        
+        .card {
+            background-color: #34495e;
+            color: white;
+            border: none;
+        }
+        
+        .card-body h5 {
+            font-weight: bold;
+        }
+        
+        pre {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        /* Style pour les dates du projet */
+        .project-dates {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        h1 {
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Portfolio Ismael Nebbache</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="qui_suis_je.html">Qui suis-je</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="parcours.html">Mon Parcours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projets.html">Mes Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille_technologique.html">Veille Technologique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certifications.html">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avenir.html">Mon Avenir</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container content">
+        <h1 class="text-center mb-4">Projet de 2ème année BTS SIO SLAM - EPI'Solidaire</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5>Contexte</h5>
+                <p>Ce projet a été réalisé en deuxième année de BTS SIO avec la spécialité SLAM, en collaboration avec un binôme. L'objectif était de développer un intranet pour la mairie de Getcet S/Mer, permettant de gérer les différents rôles des utilisateurs, tels que Maire, Secrétaire, Épicier et Commerçant, en utilisant le pattern MVC.</p>
+                
+                <h5>Besoins et Missions</h5>
+                <p>En tant que chef de projet, j'étais chargé de superviser le développement de l'application et d'assurer la coordination entre les différentes parties. Le projet visait à fournir :</p>
+                <ul>
+                    <li>Un intranet pour la mairie, avec gestion des rôles et des accès pour différents utilisateurs.</li>
+                    <li>Une interface de gestion des dons alimentaires, incluant la validation et l'enregistrement des dons extérieurs.</li>
+                    <li>La sécurisation des données via l'utilisation de requêtes préparées pour éviter les injections SQL.</li>
+                </ul>
+                
+                <h5>Langages et Outils</h5>
+                <ul>
+                    <li>PHP</li>
+                    <li>MySQL</li>
+                    <li>JavaScript</li>
+                    <li>HTML/CSS</li>
+                </ul>
+                
+                <!-- Bloc des dates du projet -->
+                <h5>Dates du projet</h5>
+                <div class="project-dates">
+                    <p class="mb-0"><strong>Du 11/10/24 au 29/11/24</strong></p>
+                    <p class="mb-0"><strong>Durée :</strong> 1 mois (Terminé)</p>
+                </div>
+                
+                <h5>Annexes Intéressantes du projet</h5>
+                <img src="acceuilGETCET.png" alt="Page d'accueil de l'intranet" class="img-fluid mb-3">
+                <img src="bddGETCET.png" alt="Structure de la base de données" class="img-fluid mb-3">
+
+                <h5>Spécifications Fonctionnelles</h5>
+                <p>Le projet répond aux besoins spécifiques de chaque rôle utilisateur :</p>
+                <ul>
+                    <li><strong>Maire :</strong> Consultation des statistiques des dons, gestion des commerçants, et visualisation des rapports.</li>
+                    <li><strong>Secrétaire :</strong> Gestion des acheteurs, ajout et suppression de profils, et vérification des informations.</li>
+                    <li><strong>Épicier :</strong> Gestion des stocks, des dons reçus, et des ventes à prix réduits.</li>
+                    <li><strong>Commerçant :</strong> Enregistrement des dons et gestion des produits donnés.</li>
+                </ul>
+
+                <h5>Notions et Concepts Clés</h5>
+                <p>Le projet intègre plusieurs concepts avancés :</p>
+                <ul>
+                    <li><strong>Navigation par Rôle :</strong> La gestion des rôles (Maire, Secrétaire) permet de rediriger les utilisateurs vers les sections spécifiques de l'application, renforçant la sécurité et la personnalisation de l'expérience utilisateur.</li>
+                    <li><strong>Sécurisation avec Requêtes Préparées :</strong> Utilisation de requêtes préparées pour protéger l'application des attaques par injection SQL, en particulier lors de la connexion et de la gestion des dons.</li>
+                    <li><strong>POO et MVC :</strong> Utilisation de la Programmation Orientée Objet (POO) et du pattern MVC pour organiser le code de manière modulaire et maintenable.</li>
+                </ul>
+
+                <h5>Gestion de la Connexion Utilisateur</h5>
+                <p>Le système de connexion est sécurisé grâce à l'utilisation de requêtes préparées et d'un chiffrement des mots de passe. Voici un extrait de code montrant cette approche :</p>
+                <pre><code class="php">
+$login = $_REQUEST['login'];
+$mdp = $_REQUEST['mdp'];
+$mdp = md5($mdp); // Chiffrement du mot de passe
+$verif = $pdo->testConnexionEmploye($login, $mdp);
+
+if ($verif == 0) {
+    ajouterErreur("Login ou mot de passe incorrect");
+    include("vues/v_erreurs.php");
+    include("vues/v_connexion.php");
+} else {
+    // Récupérer les informations de l'employé
+    $employe = $pdo->getInfosEmploye($login, $mdp);
+    $_SESSION['role'] = $employe['role'];
+}
+                </code></pre>
+
+                <h5>Gestion des Dons Extérieurs</h5>
+                <p>Le module d'enregistrement des dons extérieurs comporte plusieurs vérifications pour garantir la validité des informations saisies :</p>
+                <pre><code class="php">
+$idCommerce = $_REQUEST['idCommerce'] ?? null;
+$refProduit = $_REQUEST['refProduit'] ?? null;
+$dateduDon = $_REQUEST['dateduDon'] ?? null;
+$prixOrigine = $_REQUEST['prixOrigine'] ?? null;
+$qte = $_REQUEST['qte'] ?? null;
+
+// Vérification des champs obligatoires
+if (empty($idCommerce) || empty($refProduit) || empty($dateduDon) || empty($prixOrigine) || empty($qte)) {
+    $errorMessage = "Tous les champs doivent être remplis.";
+    include('vues/v_messageErreurDons.php');
+    break;
+}
+
+// Enregistrer le don
+$pdo->ajouterDon($idCommerce, $refProduit, $dateduDon, $prixOrigine, $qte);
+$successMessage = "Le don a été enregistré avec succès.";
+                </code></pre>
+
+                <h5>Résumé et Apports du Projet</h5>
+                <p>Ce projet m'a permis de développer mes compétences en tant que chef de projet, notamment dans la gestion d'une équipe et la coordination du travail. J'ai également appris à utiliser des outils et des méthodes pour sécuriser les données des utilisateurs et à m'assurer que les rôles et permissions sont correctement gérés au sein de l'application.</p>
+                
+                <h5>Évolutions Potentielles</h5>
+                <p>Pour l'avenir, plusieurs évolutions pourraient être envisagées :</p>
+                <ul>
+                    <li>Intégration d'une interface plus moderne et ergonomique en utilisant des frameworks front-end comme Vue.js ou React.</li>
+                    <li>Extension du système de gestion des rôles pour inclure d'autres niveaux de permissions (par exemple, un accès restreint pour certains utilisateurs).</li>
+                    <li>Optimisation des requêtes SQL pour améliorer les performances, en particulier sur de grandes quantités de données.</li>
+                    <li>Ajout d'une fonctionnalité de reporting plus avancée, permettant de générer des rapports détaillés sur les dons et les utilisateurs.</li>
+                </ul>
+                
+                <h5>Défis et Difficultés</h5>
+                <p>Le plus grand défi pour moi a été de garder un œil sur l'ensemble du projet en tant que chef de projet, tout en coordonnant les tâches avec mon binôme. La nécessité de regrouper et de maintenir le code de manière cohérente a également été un défi important, en particulier pour s'assurer que chaque module s'intègre bien avec les autres.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion du script Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les technologies connectées</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Quiz sur les technologies connectées</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="casquette.html">Casquette anti-calvitie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dent.html">Dents connectées</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bci.html">Interfaces Cerveau-Ordinateur (BCI)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="point.html">Points Positifs et Négatifs</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mt-5">
+        <p>Cliquez sur le bouton pour démarrer le quiz :</p>
+        <button id="debutquizz" class="btn btn-primary">Démarrer le Quiz</button>
+
+        <script>
+            document.getElementById('debutquizz').addEventListener('click', function () {
+                let score = 0;
+
+                let question1 = prompt("1. Quel capteur est souvent utilisé dans les dents connectées pour surveiller l'hygiène bucco-dentaire?\nA. Capteur de pression\nB. Capteur de température\nC. Capteur d'humidité");
+                if (question1.toUpperCase() === "B") {
+                    score++;
+                }
+
+                let question2 = prompt("2. Comment fonctionne généralement une casquette anti-calvitie?\nA. En améliorant la circulation sanguine du cuir chevelu\nB. En changeant la couleur des cheveux\nC. En stimulant la repousse des cheveux");
+                if (question2.toUpperCase() === "C") {
+                    score++;
+                }
+
+                let question3 = prompt("3. Les dents connectées peuvent-elles détecter la consommation de nourriture?\nA. Oui\nB. Non\nC. Seulement le sucre");
+                if (question3.toUpperCase() === "A") {
+                    score++;
+                }
+
+                let question4 = prompt("4. Quel matériau est utilisé pour créer la plupart des capteurs dentaires?\nA. Plastique\nB. Silicium\nC. Fibre de carbone");
+                if (question4.toUpperCase() === "B") {
+                    score++;
+                }
+
+                let question5 = prompt("5. Pourquoi la connectivité des dents est-elle importante?\nA. Pour pouvoir regarder des vidéos\nB. Pour surveiller la santé bucco-dentaire en temps réel\nC. Pour écouter de la musique");
+                if (question5.toUpperCase() === "B") {
+                    score++;
+                }
+
+                let question6 = prompt("6. Qu'est-ce qu'une interface cerveau-ordinateur (BCI) permet de faire?\nA. Communiquer avec un ordinateur par la pensée\nB. Améliorer la croissance des cheveux\nC. Changer la couleur des dents");
+                if (question6.toUpperCase() === "A") {
+                    score++;
+                }
+
+                let question7 = prompt("7. Quelle entreprise célèbre développe des interfaces cerveau-ordinateur (BCI)?\nA. Tesla\nB. Neuralink\nC. SpaceX");
+                if (question7.toUpperCase() === "B") {
+                    score++;
+                }
+
+                document.write(`<p>Ton score est de ${score}/7</p>`);
+
+                if (score < 4) {
+                    document.write(`<p>Revois le cours pour mieux comprendre !</p>`);
+                } else {
+                    document.write(`<p>Bravo, tu as réussi le quiz !</p>`);
+                }
+            });
+        </script>
+    </main>
+
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <p>&copy; 2024 Technologies Connectées.

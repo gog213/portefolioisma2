@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications - Mon Portfolio</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 8px 0;
+            background: rgba(58, 28, 113, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            margin: 0 8px;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Section contenu principal */
+        .content {
+            padding: 120px 20px 70px;
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+        }
+
+        .content h1,
+        .content p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: titleSlideIn 1s ease-out;
+        }
+
+        .content p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            animation: textFadeIn 1s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        @keyframes titleSlideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes textFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Section certifications */
+        .certifications {
+            padding: 70px 0;
+            background-color: #f8f9fa;
+        }
+
+        .certification-card {
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.8s forwards;
+        }
+
+        /* Animation d'apparition décalée pour chaque carte */
+        .certification-card:nth-child(1) { animation-delay: 0.1s; }
+        .certification-card:nth-child(2) { animation-delay: 0.2s; }
+        .certification-card:nth-child(3) { animation-delay: 0.3s; }
+        .certification-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            background: linear-gradient(145deg, #34495e, #2c3e50);
+            border: none;
+            color: white;
+            padding: 20px;
+            min-height: 350px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.05), transparent);
+            z-index: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            position: relative;
+            z-index: 2;
+        }
+
+        .certification-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-card img:hover {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        /* Normalisation des tailles d'images */
+        .rgpd-img {
+            width: 120px !important;
+            height: 120px !important;
+            object-fit: contain;
+        }
+
+        .btn-certification {
+            background: linear-gradient(to right, #3a1c71, #d76d77);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(58, 28, 113, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-certification::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(to right, #d76d77, #3a1c71);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-certification:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(58, 28, 113, 0.5);
+            color: #fff;
+        }
+
+        .btn-certification:hover::before {
+            width: 100%;
+        }
+
+        /* Loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #3a1c71;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOutLoader 0.8s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        @keyframes fadeOutLoader {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="page-loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-code"></i> Ismael Nebbache
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="qui_suis_je.html">
+                            <i class="fas fa-user"></i> Qui suis-je
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="parcours.html">
+                            <i class="fas fa-road"></i> Mon Parcours
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projets.html">
+                            <i class="fas fa-project-diagram"></i> Mes Projets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille_technologique.html">
+                            <i class="fas fa-rss"></i> Veille
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="certifications.html">
+                            <i class="fas fa-certificate"></i> Certifications
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avenir.html">
+                            <i class="fas fa-rocket"></i> Mon Avenir
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="content">
+        <h1>Certifications</h1>
+        <p>Voici une liste de mes certifications obtenues, démontrant mon engagement à l'apprentissage continu et à l'amélioration de mes compétences techniques.</p>
+    </div>
+
+    <!-- Certifications -->
+    <div class="certifications container">
+        <div class="row">
+            <!-- Carte 1 : Cybersecurity Essentials -->
+            <div class="col-md-4 certification-card">
+                <div class="card">
+                    <img src="imgcisco.png" alt="Certification Cybersecurity">
+                    <div class="card-body">
+                        <h5 class="card-title">Certification Cybersecurity Essentials</h5>
+                        <p class="card-text">Cisco Networking Academy - Cybersecurity Essentials.</p>
+                        <a href="Introduction_to_Cybersecurity_Badge20240907-7-2luc79.pdf" class="btn-certification" target="_blank">
+                            Voir la certification <i class="fas fa-external-link-alt ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carte 2 : RGPD (groupée) -->
+            <div class="col-md-4 certification-card">
+                <div class="card">
+                    <img src="imgrgpd.jpg" alt="Certification RGPD - CNIL" class="rgpd-img">
+                    <div class="card-body">
+                        <h5 class="card-title">Certification RGPD de la CNIL</h5>
+                        <p class="card-text">Formation complète sur la protection des données et la réglementation RGPD.</p>
+                        <a href="rgpd-certification.pdf" class="btn-certification" target="_blank">
+                            Voir la certification <i class="fas fa-external-link-alt ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carte 3 : Cyber Threat Management -->
+            <div class="col-md-4 certification-card">
+                <div class="card">
+                    <img src="cyber-threat-management.png" alt="Certification Cyber Threat Management">
+                    <div class="card-body">
+                        <h5 class="card-title">Certification Cyber Threat Management</h5>
+                        <p class="card-text">Cisco Networking Academy - Cyber Threat Management.</p>
+                        <a href="certifiCyber.pdf" class="btn-certification" target="_blank">
+                            Voir la certification <i class="fas fa-external-link-alt ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 4 : Exemple supplémentaire -->
+            <div class="col-md-4 certification-card">
+                <div class="card">
+                    <img src="LogoPix.png" alt="Certification Exemple">
+                    <div class="card-body">
+                        <h5 class="card-title">Certification Exemple</h5>
+                        <p class="card-text">Description de la certification Exemple.</p>
+                        <a href="attestation-pix-20241209.pdf" class="btn-certification" target="_blank">
+                            Voir la certification <i class="fas fa-external-link-alt ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion du script Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts personnalisés -->
+    <script>
+        // Navbar effect on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Hide loader when page is loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.page-loader').style.display = 'none';
+            }, 2500);
+        });
+    </script>
+</body>
+</html>
