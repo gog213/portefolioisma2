@@ -1,0 +1,13 @@
+<head>
+    <!-- Vos balises head ici -->
+</head>
+<body>
+    <form action="gestionBdd.php" method="GET">
+        <fieldset>
+            <legend>Menu de gestion de la base de données</legend>
+            <input type="submit" name="Insertion" value="Insertion" /><br/>
+            <input type="submit" name="Modification" value="Modification" /><br/>
+            <input type="submit" name="Suppression" value="Suppression" /><br/>
+        </fieldset>
+    </form>
+</body>
