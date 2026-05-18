@@ -221,6 +221,41 @@
       box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
       color: white;
     }
+
+    .badge-status {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(to right, #e67e22, #f39c12);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      z-index: 2;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-status .dot {
+      width: 7px;
+      height: 7px;
+      background: #fff;
+      border-radius: 50%;
+      animation: blink 1.4s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .project-card .img-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
     
     /* Footer */
     .footer {
@@ -313,6 +348,31 @@
   <div class="container projects-container">
     <h2 class="section-title">Réalisations Récentes</h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+      <!-- AquaCoach (projet personnel en cours) -->
+      <div class="col">
+        <div class="card project-card">
+          <div class="img-wrapper">
+            <span class="badge-status"><span class="dot"></span> En cours</span>
+            <img src="img.jpg" class="card-img-top" alt="AquaCoach"/>
+          </div>
+          <div class="card-body">
+            <span class="badge-year">2025</span>
+            <h5 class="card-title">AquaCoach</h5>
+            <p class="card-text">
+              Site vitrine et système de réservation en ligne avec paiement Stripe pour un coach de natation. Calendrier interactif, confirmation client et intégration webhook en cours de finalisation.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Express</span>
+              <span class="project-tag">Stripe</span>
+            </div>
+            <a href="aquacoach.html" class="btn-project mt-3">
+              En savoir plus <i class="fas fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
 
       <!-- NouvelleVague (1er projet) -->
       <div class="col">
@@ -466,9 +526,8 @@
         <div class="col-md-4 footer-section">
           <h3>Me suivre</h3>
           <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/ismael-nebbache-2a08012b2" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/gog213" target="_blank"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
